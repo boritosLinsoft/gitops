@@ -20,20 +20,20 @@ spec:
         deployment: backend
     spec:
       containers:
-      - env:
-        - name: SPRING_DATASOURCE_URL
-          value: {{ .Values.backend.db.url | quote }} #jdbc:mariadb://mariadb-local:3306/ma_base
-        - name: SPRING_DATASOURCE_USERNAME
-          value: {{ .Values.backend.db.user | quote }} #admin
-        - name: SPRING_DATASOURCE_PASSWORD
-          value: {{ .Values.backend.db.password | quote }}  #admin
-          image: "{{ .Values.backend.image }}:{{ .Values.backend.tag }}" 
-#image-registry.openshift-image-registry.svc:5000/demo-188/backend@sha256:16b11edd1683e403e20d8bd70ff042d02d03799024f3dd16b3ace236e11f0eaa
+        - env:
+          - name: SPRING_DATASOURCE_URL
+            value: {{ .Values.backend.db.url | quote }} #jdbc:mariadb://mariadb-local:3306/ma_base
+          - name: SPRING_DATASOURCE_USERNAME
+            value: {{ .Values.backend.db.user | quote }} #admin
+          - name: SPRING_DATASOURCE_PASSWORD
+            value: {{ .Values.backend.db.password | quote }}  #admin
+        image: "{{ .Values.backend.image }}:{{ .Values.backend.tag }}" 
+#image  -registry.openshift-image-registry.svc:5000/demo-188/backend@sha256:16b11edd1683e403e20d8bd70ff042d02d03799024f3dd16b3ace236e11f0eaa
         imagePullPolicy: Always
         name: backend
         ports:
-        - containerPort: 8080
-          protocol: TCP
+          - containerPort: 8080
+            protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
