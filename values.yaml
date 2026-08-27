@@ -1,0 +1,15 @@
+# Configuration du Backend
+backend:
+  replicas: 1
+  image: image-registry.openshift-image-registry.svc:5000/demo-188/backend
+  tag: "latest"
+  db:
+    url: "jdbc:mariadb://mariadb-local:3306/ma_base"
+    user: "admin"
+    password: "admin"
+
+# Configuration du Frontend
+frontend:
+  replicas: 1
+  image: image-registry.openshift-image-registry.svc:5000/demo-188/frontend
+  tag: "latest"

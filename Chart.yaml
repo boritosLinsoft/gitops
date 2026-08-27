@@ -1,0 +1,5 @@
+apiVersion: v2
+name: app-3tiers
+description: Helm chart pour le Backend Spring Boot et le Frontend React
+version: 1.0.0
+appVersion: "1.0"
