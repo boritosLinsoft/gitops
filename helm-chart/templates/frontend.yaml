@@ -23,9 +23,9 @@ spec:
         - image: "{{ .Values.frontend.image }}:{{ .Values.frontend.tag }}" #image-registry.openshift-image-registry.svc:5000/demo-188/frontend-ui@sha256:737e8cc923dbf63625824461e00716b52477988ad7a97176758428f262353151
           imagePullPolicy: Always
           name: frontend-ui
-          ports:
-          - containerPort: 8080
-            protocol: TCP
+        ports:
+        - containerPort: 8080
+          protocol: TCP
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
