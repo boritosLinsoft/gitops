@@ -4,6 +4,14 @@ metadata:
   name: backend
   namespace: demo-188
 spec:
+  host: backend-demo-188.apps.ocp4.example.com
+  port:
+    targetPort: 8080-tcp
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
   to:
     kind: Service
     name: backend
+    weight: 100
+  wildcardPolicy: None

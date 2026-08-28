@@ -4,6 +4,14 @@ metadata:
   name: frontend-ui
   namespace: demo-188
 spec:
+  host: frontend-ui-demo-188.apps.ocp4.example.com
+  port:
+    targetPort: 8080-tcp
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
   to:
     kind: Service
     name: frontend-ui
+    weight: 100
+  wildcardPolicy: None
