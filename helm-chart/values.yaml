@@ -1,7 +1,7 @@
 # Configuration du Backend
 backend:
   replicas: 1
-  image: image-registry.openshift-image-registry.svc:5000/demo-188/backend
+  image: docker.io/boritos/backend
   tag: "app-3tiers-pipeline-362o1o"
   db:
     url: "jdbc:mariadb://mariadb-local:3306/ma_base"
@@ -11,5 +11,5 @@ backend:
 # Configuration du Frontend
 frontend:
   replicas: 1
-  image: image-registry.openshift-image-registry.svc:5000/demo-188/frontend
+  image: docker.io/boritos/frontend
   tag: "app-3tiers-pipeline-362o1o"
