@@ -2,7 +2,7 @@
 backend:
   replicas: 1
   image: docker.io/boritos/backend
-  tag: "app-3tiers-pipeline-362o1o"
+  tag: "app-3tiers-pipeline-6auku5"
   db:
     url: "jdbc:mariadb://mariadb-local:3306/ma_base"
     user: "admin"
@@ -12,4 +12,4 @@ backend:
 frontend:
   replicas: 1
   image: docker.io/boritos/frontend
-  tag: "app-3tiers-pipeline-362o1o"
+  tag: "app-3tiers-pipeline-6auku5"
