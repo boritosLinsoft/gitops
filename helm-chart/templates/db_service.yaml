@@ -5,7 +5,7 @@ metadata:
   namespace: demo-188
 spec:
   ports:
-  - port: 3306
-    targetPort: 3306
+    - port: 3306
+      targetPort: 3306
   selector:
     deployment: mariadb-local
