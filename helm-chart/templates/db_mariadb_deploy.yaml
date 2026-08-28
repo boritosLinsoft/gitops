@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mariadb-local
+  namespace: demo-188
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: mariadb-local
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        deployment: mariadb-local
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_DATABASE
+          value: ma_base
+        - name: MYSQL_PASSWORD
+          value: admin
+        - name: MYSQL_ROOT_PASSWORD
+          value: root
+        - name: MYSQL_USER
+          value: admin
+        image: quay.io/sclorg/mariadb-105-c8s@sha256:a7c67f7d83ab2aae5aafdbf85d733ad9b3e60e05c88122c440b4a6f077a7000e
+        imagePullPolicy: IfNotPresent
+        name: mariadb-local
+        ports:
+        - containerPort: 3306
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30

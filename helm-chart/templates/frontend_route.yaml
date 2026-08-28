@@ -1,0 +1,9 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: frontend-ui
+  namespace: demo-188
+spec:
+  to:
+    kind: Service
+    name: frontend-ui

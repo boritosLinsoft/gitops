@@ -41,26 +41,3 @@ spec:
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: backend
-  namespace: demo-188
-spec:
-  ports:
-    port: 8080
-    targetPort: 8080
-  selector:
-    app: backend
-
----
-apiVersion: route.openshift.io/v1
-kind: Route
-metadata:
-  name: backend
-  namespace: demo-188
-spec:
-  to:
-    kind: Service
-    name: backend
