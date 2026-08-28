@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: frontend-ui
   namespace: demo-188
+  labels:
+     app.kubernetes.io/part-of: DO188
 spec:
   replicas: {{ .Values.frontend.replicas }}
   selector:

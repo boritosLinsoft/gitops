@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: backend
   namespace: demo-188
+  labels:
+     app.kubernetes.io/part-of: DO188
 spec:
   replicas: {{ .Values.backend.replicas }}
   selector:

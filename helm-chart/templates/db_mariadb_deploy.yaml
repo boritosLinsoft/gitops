@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: mariadb-local
   namespace: demo-188
+  labels:
+     app.kubernetes.io/part-of: DO188
 spec:
   replicas: 1
   selector:
