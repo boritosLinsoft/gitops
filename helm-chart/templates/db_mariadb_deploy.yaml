@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mariadb-local
-  namespace: demo-188
+  namespace: demo-pipeline
   labels:
      app.kubernetes.io/part-of: DO188
 spec:
